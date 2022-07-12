@@ -1,0 +1,110 @@
+{# Only for IDE, already imported in base#}
+<script src="/static/main.js"></script>
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+
+        <div class="mt-5">
+            <p>
+                The numbers in this example are from patch 10.2. The logic hasn't
+                changed. Just the numbers are slightly different.
+            </p>
+
+            <p>
+                Semantics first: In TFT a roll costs 2 Gold. Whenever you roll, you get 5 champions offered.
+                We will call these throws. So each roll consists of 5 throws.
+            </p>
+
+            <p>
+                Imagine you are rolling for one specific Legendary after hitting Level
+                7. Let's pick Amumu here as our desired Legendary. The chance to roll a random Legendary is 2%
+                per
+                throw:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Roll a random Legendary) = 2%
+            </p>
+
+            <p>
+                The chance to roll Amumu is:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Roll Amumu) = P(Roll a random Legendary) * (Amount Amumus in the pool / Amount of all
+                Legendaries
+                in the
+                pool)
+            </p>
+
+            <br>
+            <p>
+                There are 7 Legendary units as of right now. Each
+                Legendary unit is 10 times in the Pool. So the Chance per throw to roll Amumu, assuming 0
+                Legendaries have
+                been
+                picked so far
+                is:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Roll Amumu) = 2% * (10 / 7 * 10) = 0,28%.
+            </p>
+
+            <br>
+            <p>
+                Therefore the Chance per throw to not roll Amumu is:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Dont roll Amumu) = 1 - P(Roll Amumu) = 100% - 0,28% = 99,72%.
+            </p>
+
+
+            <br>
+            <p>
+                Assume you have 50 gold. 50 gold gives you 25
+                rerolls. Each reroll gives you 5 throws. That's 125 throws in total. So the
+                chance to not roll Amumu even once in 125 throws is:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Dont roll Amumu in 125 throws) = 99,72% to the power of 125 = 70%.
+            </p>
+
+            <br>
+            <p>
+                In every other scenario, you will get at least one Amumu:
+            </p>
+
+            <p class="text-center font-italic">
+                P(Roll Amumu at least once in 125 throws) = 1 - P(Dont roll Amumu in 125 throws) = 100% - 70% =
+                30%
+            </p>
+
+            <p>
+                So you would get at least one Amumu 30% of
+                the time.
+            </p>
+
+            <p>
+                Not mentioned here is that at the start we have to consider the buying cost of the desired champion too,
+                so with 50 gold for 5 star unit, we actually only get 44 gold worth of rolls.
+            </p>
+
+            <p>
+                If you notice any mistakes in my calculation, or anywhere else on this page, I would be very
+                happy,
+                if you were to contact <a href="https://huti26.github.io/">me</a>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

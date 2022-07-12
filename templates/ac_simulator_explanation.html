@@ -1,0 +1,35 @@
+{# Only for IDE, already imported in base#}
+<script src="/static/main.js"></script>
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+
+        <div class="mt-5">
+            <p>
+                The simulator does not use precise math in contrast to the calculator. For these complex scenarios, we
+                simulate a player rolling down. We do this 1000 times and count how many times we successfully hit the
+                desired units. This is also known as Monte-Carlo-Simulation.
+            </p>
+            <p>
+                Our simulations are very simple. In contrast to real players, our simulations do not improve the odds of
+                hitting a unit, by buying out units of the same tier while rolling down. Also, imagine you want to roll
+                down on 4 and hit 6 copies of a tier 1 unit. Our simulations do not give you any information on how many
+                units you hit in the failed runs. One more weakness is, that our simulations can not look for two
+                possible sets of units to hit. What does that
+                mean? Often players will roll down and not look for precisely one set of units, but two. As an example a
+                player might be looking for Neeko and Shi Oh Yu or he could be looking for a Sy'Fen. We can approximate
+                the probability of hitting either of the two sets by calculating the chances separately and adding them
+                up at the end. This does disregard buying cost sligthly, but it should still offer a good approximation.
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

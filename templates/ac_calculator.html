@@ -1,0 +1,143 @@
+{# Only for IDE, already imported in base#}
+<script src="/static/main.js"></script>
+<script src="/static/tft.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="card bg-huti-light-grey mt-3">
+            <div name="custom scenario" class="card-body">
+
+                <form id="ac-calculate-form">
+
+                    <div class="row py-2">
+                        <div class="col">
+                            Champion Tier
+                        </div>
+                        <div class="col">
+                            <select class="custom-select" id="tier" name="tier" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col">
+                            Your Level
+                        </div>
+                        <div class="col">
+                            <select class="custom-select" id="level" name="level" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col">
+                            Your Gold
+                        </div>
+                        <div class="col">
+                            <input type="number" min="1" max="200" class="form-control" value="50" id="gold" name="gold"
+                                   required/>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col">
+                            Champion picked <a tabindex="0" class="btn btn-dark bg-huti-dark-grey btn-xs btn-circle"
+                                               data-container="body"
+                                               data-toggle="popover" data-trigger="focus" data-placement="auto"
+                                               data-html="true"
+                                               data-content="<p>Amount of times your desired champion has already been picked. </p>">
+                            <i class=" fas fa-question"></i>
+                        </a>
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" max="500" class="form-control" value="0" id="champion_picked"
+                                   name="champion_picked"
+                                   required/>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col">
+                            Others picked <a tabindex="0" class="btn btn-dark bg-huti-dark-grey btn-xs btn-circle"
+                                             data-container="body"
+                                             data-toggle="popover" data-trigger="focus" data-placement="auto"
+                                             data-html="true"
+                                             data-content="<p>Amount of times other champions of the same tier as your desired champion have already been picked. </p>">
+                            <i class=" fas fa-question"></i>
+                        </a>
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" max="500" class="form-control" value="0"
+                                   id="others_picked" name="others_picked"
+                                   required/>
+                        </div>
+
+                    </div>
+                    <div class="row py-2">
+                        <div class="col">
+                            Unit is a Dragon
+                            </a>
+                        </div>
+
+
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="is_dragon" name="is_dragon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+
+                <div class="row py-2">
+                    <div class="col"></div>
+                    <div class="col">
+                        <button onclick="submitForCalculation()" class="btn btn-dark bg-huti-dark-grey float-right"
+                                id="tft-calc-btn">
+                            Calculate
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row py-2">
+                    <div class="col">
+                        <p id="ac-calculated-chance" class="float-right">
+                            0.00%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

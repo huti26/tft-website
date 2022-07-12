@@ -1,0 +1,141 @@
+{# Only for IDE, already imported in base#}
+<script src="/static/main.js"></script>
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+
+        <div class="row fixed-bottom justify-content-end">
+            <button type="button" class="btn btn-secondary custom-submit-button rounded-circle"
+                    id="ac-calculated-chance"
+                    onclick="submitForSimulation()">Calculate
+            </button>
+        </div>
+
+        <div class="my-3">
+            <a type="button" data-toggle="collapse" data-target="#collapseHowTo"
+               aria-expanded="false" aria-controls="collapseHowTo">
+                How to use this
+                <i class="fas fa-caret-up fa-rotate-180"></i>
+            </a>
+        </div>
+
+        <div class="collapse my-3" id="collapseHowTo">
+            <p>
+                At the very top, you insert the player level and the gold available.
+            </p>
+            <p>
+                Then, inside the green fields you insert how many of a certain unit you want to hit.
+            </p>
+            <p>
+                 With the red fields you can control how many units are already bought out.
+            </p>
+            <p>
+                 An example usage would be checking how units being bought out affects your odds. Assume you already have 3 Aatrox and want to hit another 6 when rolling down. First, you calculate your chances to hit 6 Aatrox on Level 4 with 50 Gold, with 3 being bought out. This is 18.60%. Now, let's say there is an Ezreal player that already hit Ezreal and Leona 3. Additionally, let's assume someone else hit an Aatrox 2 and some other players also have some 2 star tier 1 units. The chances to hit our 6 Aatrox are now 16.30%. Now let's assume the guy sells his 3 Aatrox. Our odds increase back to 21.80%. So what is the takeaway from this? Others contesting your unit is significantly more impactful than the advantage offered by others buying out other units.
+            </p>
+
+        </div>
+
+        <div class="my-3">
+            <a type="button" data-toggle="collapse" data-target="#collapseExample"
+               aria-expanded="false" aria-controls="collapseExample">
+                Patch {{ game_data.patch }}
+                <i class="fas fa-caret-up fa-rotate-180"></i>
+            </a>
+        </div>
+
+
+        <div class="collapse my-3" id="collapseExample">
+            <table class="table text-white">
+                <thead>
+                <tr>
+                    <th scope="col" style="border-top: none">Level</th>
+                    <th scope="col" style="border-top: none">Tier 1</th>
+                    <th scope="col" style="border-top: none">Tier 2</th>
+                    <th scope="col" style="border-top: none">Tier 3</th>
+                    <th scope="col" style="border-top: none">Tier 4</th>
+                    <th scope="col" style="border-top: none">Tier 5</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for chances_row in game_data.chances_pretty %}
+                    <tr>
+                        <th scope="col">{{ loop.index }}</th>
+                        {% for chance in chances_row %}
+                            {% if chance != "0%" %}
+                                <td>{{ chance }}</td>
+                            {% else %}
+                                <td class="text-muted">{{ chance }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <form id="ac-calculate-form">
+
+            <div class="row my-3">
+                <div class="col">
+                    <label for="Player Level">Player Level</label>
+                    <input name="Player Level" id="Player Level" type="number" size="32" class="form-control"
+                           value="7" min="1" max="{{ game_data.max_player_level }}">
+                </div>
+
+                <div class="col">
+                    <label for="Gold">Gold</label>
+                    <input type="number" size="32" class="form-control" name="Gold" id="Gold" value="50" min="0">
+                </div>
+            </div>
+
+
+            {% for champ_list in game_data.all_lists %}
+
+                <h2>Tier {{ loop.index }} </h2>
+                <div class="row mb-5">
+
+                    {% for champ in champ_list %}
+
+                        <div class="col-2 m-2 ">
+
+                            <div class="row mb-2">
+
+                                <div class="col text-center">
+
+                                    <img src="/static/tft/TFT7_{{ champ }}.png" class="custom-champ"
+                                         alt="champ image">
+
+                                    <h6 class=" fs-1 mt-2">{{ champ }}</h6>
+
+                                    <input type="number"
+                                           class="form-control custom-select-wanted mb-1 "
+                                           name="{{ champ }}" id="{{ champ }}"
+                                           value="0" min="0">
+
+                                    <input type="number" class="form-control custom-select-taken"
+                                           name="{{ champ }}-taken"
+                                           id="{{ champ }}-taken"
+                                           value="0" min="0">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+
+            {% endfor %}
+
+        </form>
+
+    </div>
+
+
+{% endblock %}

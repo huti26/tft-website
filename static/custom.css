@@ -1,0 +1,176 @@
+:root {
+    --pastel-pink: #ffd1dc;
+    --pastel-blue: #aec6cf;
+    --pastel-yellow: #fdfd96;
+    --pastel-purple: #b39eb5;
+    --pastel-green: 119, 221, 119;
+    --pastel-red: 255, 105, 97;
+    --Dark: #1d1d1d;
+    --Primary: #373737;
+    --Info: #2c2c2c;
+    --Secondary: #d8d7c8;
+}
+
+.nav-link {
+    font-weight: bold;
+}
+
+/* dark form */
+.form-control,
+.form-control:focus,
+.custom-select {
+    background-color: var(--Dark);
+    color: #f8f9fa;
+    border-color: var(--Dark);
+    border-radius: 0.5rem;
+    border-width: 0.15rem;
+}
+
+.form-control:focus,
+.custom-select:focus {
+    border-color: var(--Dark);
+}
+
+.custom-dark {
+    background-color: var(--Dark);
+}
+
+.custom-dark-grey {
+    background-color: var(--Info);
+}
+
+.custom-light-grey {
+    background-color: var(--Primary);
+}
+
+.custom-select-wanted {
+    border-color: rgba(var(--pastel-green), 0.4);
+    border-radius: 0.5rem;
+    border-width: 0.15rem;
+}
+
+.custom-select-taken {
+    border-color: rgba(var(--pastel-red), 0.4);
+    border-radius: 0.5rem;
+    border-width: 0.15rem;
+}
+
+/* submit button*/
+.custom-submit-button {
+    width: 200px !important;
+    height: 200px !important;
+    margin-right: 50px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    /*box-shadow:*/
+    /*0 2.8px 2.2px rgba(0, 0, 0, 0.034),*/
+    /*0 6.7px 5.3px rgba(0, 0, 0, 0.048),*/
+    /*0 12.5px 10px rgba(0, 0, 0, 0.06),*/
+    /*0 22.3px 17.9px rgba(0, 0, 0, 0.072),*/
+    /*0 41.8px 33.4px rgba(0, 0, 0, 0.086),*/
+    /*0 100px 80px rgba(0, 0, 0, 0.12)*/
+}
+
+.custom-champ {
+    border-radius: 10%;
+}
+
+html, body {
+    background: #2c2c2c;
+    color: #F8F9FA;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+
+}
+
+.bg-huti-light-grey {
+    background: #373737;
+    color: #F8F9FA;
+}
+
+.bg-huti-dark-grey {
+    background: #1D1D1D;
+    color: #F8F9FA;
+}
+
+/* round buttons */
+
+.btn-circle.btn-xs {
+    width: 20px;
+    height: 20px;
+    padding: 4px 0px;
+    border-radius: 15px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* dropdown menu & links */
+a.dropdown-item {
+    color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+a.dropdown-item:hover,
+a.dropdown-item:focus {
+    color: white;
+    background-color: #2c2c2c;
+}
+
+a.dropdown-toggle:focus {
+    outline: none;
+}
+
+a.dropdown-item:active {
+    color: white;
+    background-color: #1d1d1d;
+}
+
+.dropdown-divider {
+    border-top: 1px solid white;
+}
+
+.dropdown-menu {
+    background-color: #1d1d1d;
+    margin: 0.2rem 0 0;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 0.5rem;
+}
+
+.input-group-prepend, .input-group-text {
+    background-color: #1d1d1d;
+    border-color: #1d1d1d;
+    border-style: solid;
+    border-radius: 0.5rem;
+}

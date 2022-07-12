@@ -1,0 +1,53 @@
+{# Only for IDE, already imported in base#}
+<script src="/static/main.js"></script>
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+    <div class="container mt-3">
+        <h1>
+            Hi there 👋
+        </h1>
+
+        <p>
+            This website includes two tools for the video game Teamfight Tactics.
+        </p>
+        <p>
+            The Calculator tool allows you to precisely calculate your chance to hit at least a single copy of a
+            champion when rollling down. The data in the following figure has been calculated with that tool. Let's look
+            at it, to understand how this can be useful.
+        </p>
+
+        <div class="mt-2 mb-2 text-center">
+            <img src="/static/plot4.png" width="75%" style="border-radius: 1%;" alt="">
+        </div>
+
+        <p>
+            Here we can see the chance to hit an Epic Tier unit, when rolling down on the levels 5, 6, and 7. The data
+            is from an old patch, but the general idea is still the same. On the y-axis there is the chance to hit the
+            unit, and on the x-axis is the amount of gold we invested. Our graphs start at different points, why is
+            that? Well leveling from 5 to 6 and from 6 to 7 costs a certain amount of gold. So what does this figure
+            tell us? When we have 40 gold available, leveling to 6 and rolling is just as good as staying on 5 and
+            rolling. If we have more gold than that, we can see, that rolling on 6 quickly outperforms rolling on 5. At
+            80 gold invested we have a chance bigger than 80% to hit our unit on 6, while staying on 5 would leave us at
+            less than 70%. Leveling to 7 is very costy. If we really only care about hitting that one Epic Tier unit, we
+            should only level to 7 if we have more than 110 gold available.
+        </p>
+
+        <p>
+            But once again, this data is from an old patch! Don't use this figure for reference for the current one. Use
+            the calculator to check the up to date numbers.
+        </p>
+
+        <p>
+            The second tool is a simulator. With that, we can create more complex scenarios. The resulting chances are
+            created with Monte-Carlo-Simulation. For both tools, there are explanations on the internals available.
+        </p>
+
+
+    </div>
+
+
+{% endblock %}
