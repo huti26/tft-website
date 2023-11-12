@@ -10,7 +10,7 @@ async function submitForSimulation() {
     // document.getElementById("ac-calculated-chance").outerHTML = "<div class=\"spinner-border\" role=\"status\" id=\"ac-calculated-chance\"></div>\n";
     document.getElementById("ac-calculated-chance").innerHTML = "<div class=\"spinner-border\" role=\"status\" id=\"ac-calculated-chance\"></div>\n";
 
-    let api_address = "https://tft.hutan.dev/api/tft/simulation"
+    let api_address = "https://tft.hutan.it/api/tft/simulation"
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
         api_address = "http://127.0.0.1:5000/api/tft/simulation"
     }
